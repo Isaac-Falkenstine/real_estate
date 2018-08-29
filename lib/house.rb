@@ -39,4 +39,15 @@ class House
     end
     area_total
   end
+
+  def price_per_square_foot
+    price_per_sqr_ft = self.price.to_f / self.area
+    price_per_sqr_ft.round(2)
+  end
+
+  def rooms_sorted_by_area
+    sorted_rooms_by_area = @house_rooms.sort_by do |room|
+      room.area
+    end
+  end
 end
