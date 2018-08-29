@@ -50,4 +50,10 @@ class House
       room.area
     end
   end
+
+  def rooms_by_category
+    sorted_rooms_by_category = @house_rooms.sort_by do |room|
+      room.category
+    end
+  end
 end

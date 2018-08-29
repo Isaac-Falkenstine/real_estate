@@ -84,7 +84,11 @@ class HouseTest < MiniTest::Test
     house.add_room(room_4)
     house.add_room(room_2)
     house.add_room(room_1)
-    assert_equal "gre", house.rooms_sorted_by_area
+    area_sorted_rooms = house.rooms_sorted_by_area
+    assert_equal 130, area_sorted_rooms[0].area
+    assert_equal 165, area_sorted_rooms[1].area
+    assert_equal 375, area_sorted_rooms[2].area
+    assert_equal 1230, area_sorted_rooms[3].area
   end
 
   def test_can_sort_rooms_by_category
@@ -97,5 +101,11 @@ class HouseTest < MiniTest::Test
     house.add_room(room_2)
     house.add_room(room_3)
     house.add_room(room_4)
+    category_sorted_rooms = house.rooms_by_category
+    assert_equal :basement, category_sorted_rooms[0].category
+    assert_equal :bedroom, category_sorted_rooms[1].category
+    assert_equal :bedroom, category_sorted_rooms[2].category
+    assert_equal :living_room, category_sorted_rooms[3].category
+
   end
 end
